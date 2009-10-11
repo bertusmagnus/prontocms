@@ -18,7 +18,7 @@
     function startEditing(editable) {
         var id = editable.attr('data-content-id');
         var global = editable.data('global');
-        var data = global ? { x: new Date().getTime() } : { path: cms.page.path, x: new Date().getTime() };
+        var data = global ? { x: new Date().getTime()} : { path: cms.page.path, x: new Date().getTime() };
         $.get(getUrl(id, global), data, function(content) {
             cms.dialogs.editContentDialog.open(content, saveUrl(id, global), global, editable);
         });
@@ -173,7 +173,7 @@ var AdminDialog = Class.extend({
         this.loading = true;
         var self = this;
         $.get(cms.urlBase + 'admin/dialogs/' + this.htmlFilename, null, function(html) {
-        var dialogOptions = $.extend({ autoOpen: autoOpen, modal: true, buttons: self.buttons }, self.options);
+            var dialogOptions = $.extend({ autoOpen: autoOpen, modal: true, buttons: self.buttons }, self.options);
             self.dialog = $(self.alterHtml(html)).dialog(dialogOptions);
             self.setupDialog(self.dialog);
             this.loading = false;
@@ -338,6 +338,7 @@ function deletePage() {
     $.ajax({
         type: 'post',
         url: cms.urlBase + '_page/delete/' + cms.page.path,
+        data: {},
         success: function() {
             window.location = cms.urlBase;
         },
@@ -483,7 +484,7 @@ $(function() {
     } else if (cms.authType == 'SimplePassword') {
         cms.dialogs.changeSimplePassword = new ChangeSimplePassword();
     }
-    
+
     $('.editable').editable({ global: false });
     $('.global-editable').editable({ global: true });
     $('#cms-navigation').sortableMenu();

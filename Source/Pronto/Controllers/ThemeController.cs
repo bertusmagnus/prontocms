@@ -57,7 +57,7 @@ namespace Pronto.Controllers
             {
                 return true;
             }
-            return modified > ifModifiedSinceHeader;
+            return modified > ifModifiedSinceHeader.ToUniversalTime();
         }
 
         string GetContentType(string filename)

@@ -338,6 +338,7 @@ function deletePage() {
     $.ajax({
         type: 'post',
         url: cms.urlBase + '_page/delete/' + cms.page.path,
+        data: {},
         success: function() {
             window.location = cms.urlBase;
         },
