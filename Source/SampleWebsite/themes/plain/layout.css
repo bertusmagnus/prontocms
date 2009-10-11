@@ -1,0 +1,86 @@
+﻿html
+{
+	height: 100%;
+}
+
+body
+{
+	position: relative;
+	height: 100%;
+}
+
+#content
+{
+	position: relative;
+	left: 50%;
+	margin-left: -480px;
+	width: 960px;
+	top: 100px;
+}
+
+#header
+{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -480px;
+	width: 960px;
+	height: 70px;
+}
+
+#navigation
+{
+	position: absolute;
+	top: 70px;
+	left: 50%;
+	margin-left: -480px;
+	width: 960px;
+	height: 30px;
+}
+
+#footer
+{
+	position: relative;
+	top: 100px;
+	left: 50%;
+	margin-left: -480px;
+	width: 960px;
+}
+
+#admin
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#cms-navigation
+{
+	height: 30px;
+}
+
+#cms-navigation li
+{
+	list-style-type: none;
+	margin: 0;
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+#cms-navigation li li
+{
+	margin-left: 10px;
+}
+
+#cms-navigation .level-1, 
+#cms-navigation .level-2
+{
+	display: none;
+}
+
+#cms-navigation .current .level-1, 
+#cms-navigation .current.level-1 .level-2
+{
+	display: block;
+}
