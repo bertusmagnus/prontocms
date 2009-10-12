@@ -74,7 +74,7 @@ namespace Pronto.PagePlugins
         {
             if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
             {
-                return "window.cms = { urlBase: " + UrlBase.ToJavascriptString() + ", isNewUser: true }";
+                return "window.cms = { urlBase: " + UrlBase.ToJavascriptString() + ", isNewUser: true, adminId: " + ViewContext.HttpContext.User.Identity.Name.ToJavascriptString() + " }";
             }
             else
             {
