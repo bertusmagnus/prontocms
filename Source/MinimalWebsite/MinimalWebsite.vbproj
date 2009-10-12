@@ -38,12 +38,21 @@
   <ItemGroup>
     <Reference Include="Autofac, Version=1.4.3.536, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Autofac\Autofac.dll</HintPath>
+      <HintPath>Libraries\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Integration.Web, Version=1.4.3.536, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Autofac\Autofac.Integration.Web.dll</HintPath>
+      <HintPath>Libraries\Autofac.Integration.Web.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenId, Version=2.5.4.9045, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DotNetOpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="FredCK.FCKeditorV2, Version=2.6.3.22451, Culture=neutral, PublicKeyToken=4f86767c9b519a06, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
+    <Reference Include="Pronto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -446,15 +455,20 @@
     <Content Include="App_Data\website.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <None Include="Libraries\Autofac.dll" />
+    <None Include="Libraries\Autofac.Integration.Web.dll" />
+    <None Include="Libraries\Autofac.Integration.Web.pdb" />
+    <None Include="Libraries\Autofac.pdb" />
+    <None Include="Libraries\Autofac.XML" />
+    <None Include="Libraries\DotNetOpenId.dll" />
+    <None Include="Libraries\DotNetOpenId.pdb" />
+    <None Include="Libraries\DotNetOpenId.xml" />
+    <None Include="Libraries\FredCK.FCKeditorV2.dll" />
+    <Content Include="Libraries\Pronto.dll" />
+    <Content Include="Libraries\Pronto.pdb" />
     <Content Include="templates\Page.htm" />
     <Content Include="themes\plain\minimal.css" />
     <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pronto\Pronto.csproj">
-      <Project>{00759DAB-9EE4-48B4-AB6C-91BC16005C23}</Project>
-      <Name>Pronto</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My Project\" />
