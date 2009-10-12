@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<website title="Minimal Website">
+  <page name="" title="" template="Page.htm">
+  </page>
+</website>
