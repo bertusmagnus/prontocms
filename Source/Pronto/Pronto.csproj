@@ -74,6 +74,7 @@
     <Compile Include="Authorization\IReadOnlyAuthorizer.cs" />
     <Compile Include="AuthorizeAdminAttribute.cs" />
     <Compile Include="CmsApplication.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\HandleErrorForAjaxRequestAttribute.cs" />
     <Compile Include="Controllers\OpenIdController.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
@@ -115,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PagePlugins\ContactForm.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="setup.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -21,16 +21,27 @@ namespace Pronto
 {
     public class CmsApplication : HttpApplication, IContainerProviderAccessor
     {
+        public static bool IsConfigured = false;
+
         protected virtual void Application_Start()
         {
             BuildContainer();
             RegisterRoutes(RouteTable.Routes);
             RegisterViewEngine();
+            CheckApplicationIsConfigured();
         }
 
-        protected virtual void Application_EndRequest()
+        void CheckApplicationIsConfigured()
         {
-            containerProvider.DisposeRequestContainer();
+            IsConfigured = !string.IsNullOrEmpty(WebConfigurationManager.AppSettings["auth-type"]);
+        }
+
+        protected virtual void Application_BeginRequest(object sender, EventArgs e)
+        {
+            if (!IsConfigured && !Request.AppRelativeCurrentExecutionFilePath.StartsWith("~/_config"))
+            {
+                Response.Redirect("~/_config");
+            }
         }
 
         protected virtual void Application_AuthenticateRequest(object sender, EventArgs e)
@@ -45,6 +56,11 @@ namespace Pronto
             {
                 AuthorizeSimplePassword();
             }
+        }
+
+        protected virtual void Application_EndRequest()
+        {
+            containerProvider.DisposeRequestContainer();
         }
         
         void AuthorizeOpenId()
@@ -107,6 +123,12 @@ namespace Pronto
                 "_theme/{*path}",
                 new { controller = "Theme", action = "GetFile" },
                 new[] { typeof(ThemeController).Namespace });
+
+            routes.MapRoute(
+                "Config",
+                "_config/{action}",
+                new { controller = "Configuration", action = "Index" },
+                new[] { typeof(ConfigurationController).Namespace });
 
             routes.MapRoute(
                 "Page", 

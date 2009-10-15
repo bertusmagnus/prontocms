@@ -50,6 +50,19 @@ namespace Pronto.Authorization
             admins.Add(admin);
         }
 
+        public void AddAdmin(string id, string name)
+        {
+            if (id == null) throw new ArgumentNullException("id");
+            name = (name ?? "").Trim();
+            if (name.Length == 0) throw new Exception("Please enter your name.");
+            if (IsUserAdmin(id)) throw new Exception("The admin user " + name + "(" + id + ") already exists.");
+            if (admins.Count > 0) throw new Exception("Already added first admin user.");
+
+            var admin = new Admin { Id = id, Name = name };
+            
+            admins.Add(admin);
+        }
+
         public void DeleteAdmin(string id)
         {
             var admin = admins.FirstOrDefault(a => a.Id == id);

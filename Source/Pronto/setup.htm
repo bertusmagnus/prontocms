@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Pronto CMS Setup</title>
+    <link href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" type="text/css"
+        rel="Stylesheet" />
+    <style type="text/css">
+        html {
+            background-color: #efefef;
+        }
+        body {
+            font-family: Arial, Sans-Serif;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            color: #aaa;
+            margin: 30px 0 30px 0;
+            text-align: center;
+        }
+        fieldset {
+            border: solid 1px #aaa;
+            padding: 1em;
+            margin-bottom: .5em;
+            background-color: #fff;
+        }
+        legend {
+            margin-bottom: 1em;
+        }
+        label {
+            display: block;
+            margin-bottom: .3em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        #main {
+            width: 400px;
+            margin: auto;
+        }
+        #website-title {
+            width: 100%;
+        }
+        .radio-container {
+            line-height: 2em;
+        }
+        .radio-container label {
+            display: inline;
+            margin: 0;
+            padding-left: 5px;
+        }
+        .subproperty {
+            display: none;
+            padding-left: 20px;
+        }
+        .tip {
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>
+            Pronto CMS</h1>
+        <p>
+            Awesome! It's another website powered by Pronto CMS!</p>
+        <p>
+            Configure the website here and you're ready to go.</p>
+        <fieldset>
+            <label for="website-title">
+                Website Title</label>
+            <input id="website-title" name="websiteTitle" />
+        </fieldset>
+        <fieldset>
+            <span>Admin log in using...</span>
+            <div class="radio-container">
+                <input type="radio" name="authType" value="OpenId" id="openid-normal" checked="checked" /><label
+                    for="openid-normal">OpenID <span class="tip">(Enter your OpenID)</span></label>
+            </div>
+            <div class="subproperty" id="openid-url">
+                <input id="openid-text" type="text" name="openId" style="width: 345px" />
+            </div>
+            <div class="radio-container">
+                <input type="radio" name="authType" value="Google" id="openid-google" /><label for="openid-google">Google
+                    <span class="tip">(if you have GMail or another Google account)</span></label>
+            </div>
+            <div class="radio-container">
+                <input type="radio" name="authType" value="SimplePassword" id="simplepassword" /><label
+                    for="simplepassword">Simple Password <span class="tip">(shared by all admins)</span></label>
+            </div>
+            <div class="subproperty" id="simplepassword-container">
+                <input type="text" name="simplePassword" id="simplepassword-text" />
+            </div>
+        </fieldset>
+        <fieldset>
+            <button id="finished" type="button" style="padding: 5px">
+                Finished!</button>
+        </fieldset>
+        <p class="tip">
+            You can always edit these settings later in "web.config".
+        </p>
+        <form id="login-form" method="post" action="$path_config/login">
+            <input type="hidden" name="id" />
+        </form>
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        window.path = '$path';
+
+        $(function() {
+            $('#website-title').focus();
+
+            $('#openid-url').show();
+
+            $('input[name=authType]').click(function() {
+                $('.subproperty').hide();
+                if ($('#openid-normal:checked').length) {
+                    $('#openid-url').show();
+                    $('#openid-url input').focus();
+                }
+                else if ($('#simplepassword:checked').length) {
+                    $('#simplepassword-container').show();
+                    $('#simplepassword-container input').focus();
+                }
+            });
+
+            $('#finished').click(function() {
+                $(this).hide().after('<span>That was quick! Hang on a second while we set things up.</span>');
+                
+                $.post(path + '_config/setwebsitetitle', { title: $('#website-title').val() }, function() {
+                    var authType = $('input[name=authType]:checked').val();
+                    switch (authType) {
+                        case 'OpenId':
+                            $('#login-form').find('input').val($('#openid-text').val()).end().submit();
+                            break;
+                        case 'Google':
+                            $('#login-form').find('input').val('https://www.google.com/accounts/o8/id').end().submit();
+                            break;
+                        case 'SimplePassword':
+                            $.post(path + '_config/setsimplepassword', { password: $('#simplepassword-text').val() }, function() {
+                                location = '/';
+                            });
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
