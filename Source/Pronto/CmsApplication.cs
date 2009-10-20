@@ -21,17 +21,18 @@ namespace Pronto
 {
     public class CmsApplication : HttpApplication, IContainerProviderAccessor
     {
-        public static bool IsConfigured = false;
+        internal static bool IsConfigured = false;
 
         protected virtual void Application_Start()
         {
+            AssignApplicationIsConfigured();
+
             BuildContainer();
             RegisterRoutes(RouteTable.Routes);
             RegisterViewEngine();
-            CheckApplicationIsConfigured();
         }
 
-        void CheckApplicationIsConfigured()
+        void AssignApplicationIsConfigured()
         {
             IsConfigured = !string.IsNullOrEmpty(WebConfigurationManager.AppSettings["auth-type"]);
         }
@@ -94,55 +95,60 @@ namespace Pronto
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "Plugin",
-                "_plugins/{controller}/{action}/{id}",
-                new { id = "" },
-                new[] { typeof(ContentController).Namespace });
+            if (IsConfigured)
+            {
+                routes.MapRoute(
+                    "Plugin",
+                    "_plugins/{controller}/{action}/{id}",
+                    new { id = "" },
+                    new[] { typeof(ContentController).Namespace });
 
-            routes.MapRoute(
-                "Content", 
-                "_content/{action}/{id}", 
-                new { controller = "Content", id = "" },
-                new[] { typeof(ContentController).Namespace });
+                routes.MapRoute(
+                    "Content",
+                    "_content/{action}/{id}",
+                    new { controller = "Content", id = "" },
+                    new[] { typeof(ContentController).Namespace });
 
-            routes.MapRoute(
-                "PageAdmin",
-                "_page/{action}/{*path}",
-                new { controller = "Page", path = "" },
-                new[] { typeof(PageController).Namespace });
+                routes.MapRoute(
+                    "PageAdmin",
+                    "_page/{action}/{*path}",
+                    new { controller = "Page", path = "" },
+                    new[] { typeof(PageController).Namespace });
 
-            routes.MapRoute(
-                "Auth",
-                "_auth/{action}",
-                new { controller = AuthType },
-                new[] { typeof(PageController).Namespace });
+                routes.MapRoute(
+                    "Auth",
+                    "_auth/{action}",
+                    new { controller = AuthType },
+                    new[] { typeof(PageController).Namespace });
 
-            routes.MapRoute(
-                "ThemeFile",
-                "_theme/{*path}",
-                new { controller = "Theme", action = "GetFile" },
-                new[] { typeof(ThemeController).Namespace });
+                routes.MapRoute(
+                    "ThemeFile",
+                    "_theme/{*path}",
+                    new { controller = "Theme", action = "GetFile" },
+                    new[] { typeof(ThemeController).Namespace });
 
-            routes.MapRoute(
-                "Config",
-                "_config/{action}",
-                new { controller = "Configuration", action = "Index" },
-                new[] { typeof(ConfigurationController).Namespace });
-
-            routes.MapRoute(
-                "Page", 
-                "{*path}", 
-                new { controller = "Page", action = "GetPage", path = "" }, 
-                new[] { typeof(PageController).Namespace }
-            );
+                routes.MapRoute(
+                    "Page",
+                    "{*path}",
+                    new { controller = "Page", action = "GetPage", path = "" },
+                    new[] { typeof(PageController).Namespace }
+                );
+            }
+            else
+            {
+                routes.MapRoute(
+                    "Config",
+                    "_config/{action}",
+                    new { controller = "Configuration", action = "Index" },
+                    new[] { typeof(ConfigurationController).Namespace });
+            }
         }
 
         public static string AuthType
         {
             get
             {
-                return WebConfigurationManager.AppSettings["auth-type"] ?? "OpenId";
+                return WebConfigurationManager.AppSettings["auth-type"];
             }
         }
 
@@ -161,12 +167,10 @@ namespace Pronto
             builder.Register(c => HttpContext.Current.Cache).HttpRequestScoped();
             builder.Register(CreateWebsiteConfiguration());           
             builder.Register<WebsiteService>().As<IWebsiteService>().HttpRequestScoped();
-            if (AuthType == "OpenId")
-            {
-                var authorizationFilename = Server.MapPath("~/app_data/authorization.xml");
-                builder.Register(c => new AuthorizerService(authorizationFilename, c.Resolve<Cache>()))
-                       .As<IResourceService<Authorizer, IReadOnlyAuthorizer>>().HttpRequestScoped();
-            }
+
+            var authorizationFilename = Server.MapPath("~/app_data/authorization.xml");
+            builder.Register(c => new AuthorizerService(authorizationFilename, c.Resolve<Cache>()))
+                   .As<IResourceService<Authorizer, IReadOnlyAuthorizer>>().HttpRequestScoped();
 
             RegisterPagePlugins(builder);
 
