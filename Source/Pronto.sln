@@ -5,13 +5,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pronto", "Pronto\Pronto.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pronto.UnitTests", "Pronto.UnitTests\Pronto.UnitTests.csproj", "{95CE37F2-77B2-412F-81CD-3F33ABDB7D00}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MinimalWebsite", "MinimalWebsite\MinimalWebsite.vbproj", "{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebsite", "SampleWebsite\SampleWebsite.csproj", "{4B42A365-44C4-4BBD-98ED-2B204CD9EBD4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{AF131C03-EA4D-4BC1-9A94-645DBFBA80B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProntoCMSWebsite", "ProntoCMSWebsite\ProntoCMSWebsite.csproj", "{366E41A0-028C-4FAE-9AAB-761245798B96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebsite", "Samples\SampleWebsite\SampleWebsite.csproj", "{4B42A365-44C4-4BBD-98ED-2B204CD9EBD4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MinimalWebsite", "Samples\MinimalWebsite\MinimalWebsite.vbproj", "{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProntoCMSWebsite", "Samples\ProntoCMSWebsite\ProntoCMSWebsite.csproj", "{366E41A0-028C-4FAE-9AAB-761245798B96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +27,14 @@ Global
 		{95CE37F2-77B2-412F-81CD-3F33ABDB7D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95CE37F2-77B2-412F-81CD-3F33ABDB7D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95CE37F2-77B2-412F-81CD-3F33ABDB7D00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B42A365-44C4-4BBD-98ED-2B204CD9EBD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B42A365-44C4-4BBD-98ED-2B204CD9EBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B42A365-44C4-4BBD-98ED-2B204CD9EBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B42A365-44C4-4BBD-98ED-2B204CD9EBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD77F5F5-E15D-4673-A9FA-0FDE9ACAF2AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{366E41A0-028C-4FAE-9AAB-761245798B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{366E41A0-028C-4FAE-9AAB-761245798B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{366E41A0-028C-4FAE-9AAB-761245798B96}.Release|Any CPU.ActiveCfg = Release|Any CPU

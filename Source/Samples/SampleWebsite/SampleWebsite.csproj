@@ -424,7 +424,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pronto\Pronto.csproj">
+    <ProjectReference Include="..\..\Pronto\Pronto.csproj">
       <Project>{00759DAB-9EE4-48B4-AB6C-91BC16005C23}</Project>
       <Name>Pronto</Name>
     </ProjectReference>
