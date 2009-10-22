@@ -91,7 +91,12 @@
 #cms-navigation-admin li {
 	list-style-type: none;
 	line-height: normal;
-	margin-left: 0;
+	margin: 0;
+	line-height: 25px;
+}
+
+#cms-navigation-admin li .ui-icon-document {
+	margin-top: 4px;
 }
 
 #cms-navigation-admin li li {

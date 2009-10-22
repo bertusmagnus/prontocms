@@ -173,10 +173,10 @@ var AdminDialog = Class.extend({
         this.loading = true;
         var self = this;
         $.get(cms.urlBase + 'admin/dialogs/' + this.htmlFilename, null, function(html) {
-        var dialogOptions = $.extend({ autoOpen: autoOpen, modal: true, buttons: self.buttons }, self.options);
+            var dialogOptions = $.extend({ autoOpen: autoOpen, modal: true, buttons: self.buttons }, self.options);
             self.dialog = $(self.alterHtml(html)).dialog(dialogOptions);
             self.setupDialog(self.dialog);
-            this.loading = false;
+            self.loading = false;
         });
     },
     open: function() {
@@ -279,7 +279,7 @@ var EditPageDialog = AdminDialog.extend({
 
 var OrganisePagesDialog = AdminDialog.extend({
     init: function() {
-        this._super('OrganisePages.htm', 'Save');
+        this._super('OrganisePages.htm', 'Save', { position: 'top' });
     },
     buildTree: function() {
         var tree = $('#cms-navigation').clone().attr('id', 'cms-navigation-admin');
@@ -289,7 +289,9 @@ var OrganisePagesDialog = AdminDialog.extend({
         tree.find('a').add('#cms-navigation-admin span').each(function() { $(this).replaceWith(this.childNodes); });
         tree.find('li').prepend('<span class="ui-icon ui-icon-document" style="float:left;"/>');
         tree.find(':hidden').show();
-        tree.sortable({ axis: 'y' });
+        //tree.sortable({ axis: 'y' });
+        tree.jTree();
+        $('#jTreeHelper').css('margin-top', -parseInt($('body').css('margin-top')));
         return tree;
     },
     setupDialog: function OrganisePagesDialog_setupDialog($dialog) {
@@ -304,7 +306,9 @@ var OrganisePagesDialog = AdminDialog.extend({
             function buildXml(lis) {
                 lis.each(function() {
                     var oldPath = $(this).attr('data-path');
-                    xml.push('<page path="', oldPath, '"/>');
+                    xml.push('<page path="', oldPath, '">');
+                    buildXml($(this).find('> ul > li'));
+                    xml.push('</page>');
                 })
             }
             buildXml(tree.find('> li'));

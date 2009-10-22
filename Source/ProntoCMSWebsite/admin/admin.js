@@ -290,6 +290,7 @@ var OrganisePagesDialog = AdminDialog.extend({
         tree.find('li').prepend('<span class="ui-icon ui-icon-document" style="float:left;"/>');
         tree.find(':hidden').show();
         tree.sortable({ axis: 'y' });
+        //tree.jTree();
         return tree;
     },
     setupDialog: function OrganisePagesDialog_setupDialog($dialog) {
