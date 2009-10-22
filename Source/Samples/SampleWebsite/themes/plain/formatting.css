@@ -1,0 +1,32 @@
+﻿body
+{
+	font-family: Arial;
+}
+strong
+{
+	font-weight: bold;
+}
+em
+{
+	font-style: italic;
+}
+li
+{
+	list-style-type: disc;
+	margin-left: 20px;
+}
+h1
+{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+h2
+{
+	font-size: 1.2em;
+}
+p
+{
+	text-align: justify;
+	margin-bottom: 1em;
+	font-size: .8em;
+}
