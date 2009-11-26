@@ -1,16 +1,6 @@
-﻿<html>
-<head>
-    <title><?title?></title>
-    <?theme minimal.css?>
-</head>
-<body>
-    <div class="header">
-        <?globalcontent header?>
-    </div>
-    <?navigation?>
-    <div>
+﻿<use-master id="Master.htm">
+    <html for="main">
+        <h1>My Website</h1>
         <?content?>
-    </div>
-    <?admin?>
-</body>
-</html>
+    </html>
+</use-master>

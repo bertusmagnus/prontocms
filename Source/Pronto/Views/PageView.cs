@@ -22,11 +22,13 @@ namespace Pronto.Views
 
         public void Render(ViewContext viewContext, TextWriter writer)
         {
+            List<XElement> scripts = new List<XElement>();
             var html = new XDocument(this.html);
             var page = (IReadOnlyPage)viewContext.ViewData["page"];
-            ExpandPlugIns(viewContext, html);
+            ExpandPlugIns(viewContext, html, scripts);
             AddResetCss(html);
             AddJQuery(html);
+            AddPluginScripts(html, scripts);
             AddPageNameClassToBody(page, html);
             AddDescriptionMetaTag(page, html);
             ExpandEmptyNonSelfClosingElements(html);
@@ -52,13 +54,13 @@ namespace Pronto.Views
             }
         }
 
-        void ExpandPlugIns(ViewContext viewContext, XDocument html)
+        void ExpandPlugIns(ViewContext viewContext, XDocument html, List<XElement> scripts)
         {
             var pis = html.DescendantNodes().OfType<XProcessingInstruction>().ToArray();
-            ExpandPlugins(viewContext, pis, html.Root.Element("head"));
+            ExpandPlugins(viewContext, pis, html.Root.Element("head"), scripts);
         }
 
-        void ExpandPlugins(ViewContext viewContext, XProcessingInstruction[] pis, XElement head)
+        void ExpandPlugins(ViewContext viewContext, XProcessingInstruction[] pis, XElement head, List<XElement> scripts)
         {
             var typesUsed = new HashSet<Type>();
             foreach (var pi in pis)
@@ -72,9 +74,11 @@ namespace Pronto.Views
                 head.Add(headContents);
 
                 var content = plugin.Render(pi.Data).ToArray();
-                ExpandPlugins(viewContext, content.OfType<XProcessingInstruction>().ToArray(), head);
-                ExpandPlugins(viewContext, content.OfType<XContainer>().DescendantNodes().OfType<XProcessingInstruction>().ToArray(), head);
+                ExpandPlugins(viewContext, content.OfType<XProcessingInstruction>().ToArray(), head, scripts);
+                ExpandPlugins(viewContext, content.OfType<XContainer>().DescendantNodes().OfType<XProcessingInstruction>().ToArray(), head, scripts);
                 pi.ReplaceWith(content);
+
+                scripts.AddRange(plugin.GetScripts(isFirstUse));
             }
         }
         
@@ -120,6 +124,15 @@ namespace Pronto.Views
                     new XAttribute("rel", "stylesheet")
                 )
             );
+        }
+
+        void AddPluginScripts(XDocument html, List<XElement> scripts)
+        {
+            var lastScript = html.Root.Descendants("script").Last();
+            foreach (var script in Enumerable.Reverse(scripts))
+            {
+                lastScript.AddAfterSelf(script);
+            }
         }
 
         static string ResetCssUrl()

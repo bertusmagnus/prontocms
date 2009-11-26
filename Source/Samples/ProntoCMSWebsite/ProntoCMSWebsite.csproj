@@ -35,7 +35,6 @@
     <Reference Include="Autofac.Integration.Web, Version=1.4.3.536, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL" />
     <Reference Include="DotNetOpenId, Version=2.5.4.9045, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL" />
     <Reference Include="FredCK.FCKeditorV2, Version=2.6.3.22451, Culture=neutral, PublicKeyToken=4f86767c9b519a06, processorArchitecture=MSIL" />
-    <Reference Include="Pronto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -414,6 +413,7 @@
     <Content Include="Libraries\FredCK.FCKeditorV2.dll" />
     <Content Include="Libraries\Pronto.dll" />
     <Content Include="Libraries\Pronto.pdb" />
+    <Content Include="templates\Master.htm" />
     <Content Include="templates\Page.htm" />
     <Content Include="themes\plain\minimal.css" />
     <Content Include="Web.config" />
@@ -422,6 +422,12 @@
     <None Include="admin\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <None Include="admin\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
     <None Include="admin\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Pronto\Pronto.csproj">
+      <Project>{00759DAB-9EE4-48B4-AB6C-91BC16005C23}</Project>
+      <Name>Pronto</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

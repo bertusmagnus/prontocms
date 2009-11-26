@@ -164,6 +164,10 @@ namespace Pronto
         protected virtual void RegisterContainerComponents(ContainerBuilder builder)
         {
             RegisterControllers(builder);
+            builder.Register(c => new HttpContextWrapper(HttpContext.Current)).As<HttpContextBase>();
+            builder.Register(c => c.Resolve<HttpContextBase>().Server);
+            builder.Register(c => c.Resolve<HttpContextBase>().Request);
+            builder.Register(c => c.Resolve<HttpContextBase>().Response);
             builder.Register(c => HttpContext.Current.Cache).HttpRequestScoped();
             builder.Register(CreateWebsiteConfiguration());           
             builder.Register<WebsiteService>().As<IWebsiteService>().HttpRequestScoped();

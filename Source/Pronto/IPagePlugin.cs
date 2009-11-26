@@ -9,5 +9,6 @@ namespace Pronto
         void Initialize(ViewContext context);
         IEnumerable<XObject> GetHeadContents(bool firstUse);
         IEnumerable<XObject> Render(string data);
+        IEnumerable<XElement> GetScripts(bool firstUse);
     }
 }

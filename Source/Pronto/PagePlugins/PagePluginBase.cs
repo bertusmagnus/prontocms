@@ -27,6 +27,11 @@ namespace Pronto.PagePlugins
 
         public abstract IEnumerable<XObject> Render(string data);
 
+        public virtual IEnumerable<XElement> GetScripts(bool firstUse)
+        {
+            return Enumerable.Empty<XElement>();
+        }
+
         /// <summary>
         /// Is the current user in the role "admin".
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.IO;
 using System.Web.Caching;
 using System.Web.Mvc;
@@ -52,9 +53,39 @@ namespace Pronto.Views
         PageView CreateAndCachePageView(ControllerContext controllerContext, string viewName, string templateFilename)
         {
             var html = XDocument.Load(templateFilename);
-            var pageView = new PageView(html, getPlugin);
-            controllerContext.HttpContext.Cache.Insert(viewName, pageView, new CacheDependency(templateFilename));
-            return pageView;
+            if (html.Root.Name.LocalName == "use-master")
+            {
+                var masterFilename = Path.Combine(websiteConfiguration.TemplateDirectory, html.Root.Attribute("id").Value);
+                var pageView = CreatePageViewWithMaster(html, masterFilename);
+                controllerContext.HttpContext.Cache.Insert(viewName, pageView, new CacheDependency(new[] { masterFilename, templateFilename }));
+                return pageView;
+            }
+            else
+            {
+                var pageView = new PageView(html, getPlugin);
+                controllerContext.HttpContext.Cache.Insert(viewName, pageView, new CacheDependency(templateFilename));
+                return pageView;
+            }
+        }
+
+        PageView CreatePageViewWithMaster(XDocument contentHtml, string masterFilename)
+        {
+            var masterHtml = XDocument.Load(masterFilename);
+            var placeholders = masterHtml.DescendantNodes().OfType<XProcessingInstruction>().Where(pi => pi.Target == "placeholder").ToArray();
+            foreach (var placeholder in placeholders)
+            {
+                var placeholderId = placeholder.Data;
+                var content = contentHtml.Root.Elements().FirstOrDefault(e => e.Attribute("for").Value == placeholderId);
+                if (content == null)
+                {
+                    placeholder.Remove();
+                }
+                else
+                {
+                    placeholder.ReplaceWith(content.Nodes());
+                }
+            }
+            return new PageView(masterHtml, getPlugin);
         }
 
         static PageView GetPageViewFromCache(ControllerContext controllerContext, string viewName)
