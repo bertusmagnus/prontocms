@@ -124,7 +124,7 @@ namespace Pronto
                 routes.MapRoute(
                     "ThemeFile",
                     "_theme/{*path}",
-                    new { controller = "Theme", action = "GetFile" },
+                    new { controller = "Theme", action = "FileAction" },
                     new[] { typeof(ThemeController).Namespace });
 
                 routes.MapRoute(
@@ -175,6 +175,7 @@ namespace Pronto
             var authorizationFilename = Server.MapPath("~/app_data/authorization.xml");
             builder.Register(c => new AuthorizerService(authorizationFilename, c.Resolve<Cache>()))
                    .As<IResourceService<Authorizer, IReadOnlyAuthorizer>>().HttpRequestScoped();
+            builder.Register<SimplePasswordService>();
 
             RegisterPagePlugins(builder);
 

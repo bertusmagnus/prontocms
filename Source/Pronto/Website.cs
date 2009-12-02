@@ -45,6 +45,52 @@ namespace Pronto
             }
         }
 
+        public bool Contains(IReadOnlyPage page)
+        {
+            foreach (var child in Pages)
+            {
+                if (child == page) return true;
+                if (child.Contains(page)) return true;
+            }
+            return false;
+        }
+
+        public IReadOnlyPage FindCurrentPageAtLevel(int level, IReadOnlyPage currentPage)
+        {
+            if (level < 1) throw new ArgumentOutOfRangeException("level", level, "level must be greater than zero.");
+            foreach (var page in this)
+            {
+                if (page == currentPage) return page;
+
+                var p = FindCurrentPageAtLevel(1, level - 1, page, currentPage);
+                if (p != null) return p;
+            }
+            return null;
+        }
+
+        IReadOnlyPage FindCurrentPageAtLevel(int currentLevel, int wantedLevel, IReadOnlyPage container, IReadOnlyPage currentPage)
+        {
+            foreach (var page in container)
+            {
+                if (page == currentPage)
+                {
+                    return (IReadOnlyPage)container;
+                }
+                if (page.Contains(currentPage))
+                {
+                    if (currentLevel == wantedLevel)
+                    {
+                        return page;
+                    }
+                    else
+                    {
+                        return FindCurrentPageAtLevel(currentLevel++, wantedLevel, page, currentPage);
+                    }
+                }
+            }
+            return null;
+        }
+
         IReadOnlyPage IReadOnlyWebsite.FindPage(string path)
         {
             return FindPage(path);

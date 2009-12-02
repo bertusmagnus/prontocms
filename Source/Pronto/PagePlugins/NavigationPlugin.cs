@@ -9,10 +9,21 @@ namespace Pronto.PagePlugins
     {
         public override IEnumerable<XObject> Render(string data)
         {
-            yield return new XElement("ul", 
-                new XAttribute("id", "cms-navigation"),
-                BuildMenu(Website, Page, 0)
-            );
+            if (data.StartsWith("level-"))
+            {
+                var level = int.Parse(data.Substring("level-".Length));
+                var p = Website.FindCurrentPageAtLevel(level, Page);
+                yield return new XElement("ul",
+                    BuildMenu(p, Page, level)
+                );
+            }
+            else
+            {
+                yield return new XElement("ul",
+                    new XAttribute("id", "cms-navigation"),
+                    BuildMenu(Website, Page, 0)
+                );
+            }
         }
 
         IEnumerable<XElement> BuildMenu(IEnumerable<IReadOnlyPage> pages, IReadOnlyPage currentPage, int level)

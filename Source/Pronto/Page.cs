@@ -160,7 +160,7 @@ namespace Pronto
             return page.FindPage(names.Skip(1));
         }
 
-        public bool Contains(Page page)
+        public bool Contains(IReadOnlyPage page)
         {
             foreach (var child in Pages)
             {

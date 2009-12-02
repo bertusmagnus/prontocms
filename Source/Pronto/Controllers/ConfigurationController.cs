@@ -11,6 +11,7 @@ using System.Configuration;
 using DotNetOpenId.RelyingParty;
 using DotNetOpenId;
 using System.Web.Security;
+using System.Web.Caching;
 
 namespace Pronto.Controllers
 {
@@ -44,11 +45,11 @@ namespace Pronto.Controllers
         public void SetSimplePassword(string password)
         {
             var config = WebConfigurationManager.OpenWebConfiguration("~");
-
-            SetConfig(config, "password", password);
             SetConfig(config, "auth-type", "SimplePassword");
             config.Save();
 
+            System.IO.File.WriteAllText(Server.MapPath("~/App_Data/simplepassword.txt"), password);
+            
             CmsApplication.IsConfigured = true;
         }
 

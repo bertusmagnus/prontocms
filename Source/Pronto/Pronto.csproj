@@ -72,6 +72,7 @@
     <Compile Include="Authorization\Authorizer.cs" />
     <Compile Include="Authorization\AuthorizerService.cs" />
     <Compile Include="Authorization\IReadOnlyAuthorizer.cs" />
+    <Compile Include="Authorization\SimplePasswordService.cs" />
     <Compile Include="AuthorizeAdminAttribute.cs" />
     <Compile Include="CmsApplication.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />

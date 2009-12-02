@@ -106,5 +106,25 @@ namespace Pronto
                 new XElement("page", new XAttribute("path", "page-error"))
             )), ref path));
         }
+
+        [Fact]
+        public void Can_find_page_at_level()
+        {
+            var data = new Website(XElement.Parse(
+@"<website title=""My Website"">
+    <page name="""" title="""" template=""template.htm""/>
+    <page name=""page-1"" title=""Page 1"" template=""template.htm""/>
+    <page name=""page-2"" title=""Page 2"" template=""template.htm"">
+        <page name=""page-3"" title=""Page 3"" template=""template.htm""/>
+        <page name=""page-4"" title=""Page 4"" template=""template.htm"">
+            <page name=""page-4-1"" title=""Page 4-1"" template=""template.htm""/>
+            <page name=""page-4-2"" title=""Page 4-2"" template=""template.htm""/>
+        </page>
+        <page name=""page-5"" title=""Page 5"" template=""template.htm""/>
+    </page>
+</website>"));
+
+            Assert.Same(data.Pages[2].Pages[1], data.FindCurrentPageAtLevel(2, data.Pages[2].Pages[1].Pages[1]));
+        }
     }
 }
