@@ -74,6 +74,12 @@ namespace Pronto
                 throw new ArgumentException("There is already another page with the URL text \"" + name + "\".");
         }
 
+        void ThrowIfAnotherChildPageHasName(string name)
+        {
+            if (Pages.Any(p => p.Name == name && p != this))
+                throw new ArgumentException("There is already another page with the URL text \"" + name + "\".");
+        }
+
         public string Title { get; set; }
         public string Template { get; set; }
         public bool Navigation { get; set; }
@@ -146,6 +152,18 @@ namespace Pronto
             // Insert new page after this in parent collection.
             var index = pageContainer.Pages.IndexOf(this);
             pageContainer.Pages.Insert(index + 1, page);
+
+            return page;
+        }
+
+        public Page AddNewChildPage(string title, string template, bool navigation, string description)
+        {
+            var name = GenerateNameFromTitle(title);
+            if (name == Name) throw new ArgumentException("A page already has the name \"" + name + "\".");
+            ThrowIfAnotherChildPageHasName(name);
+            var page = new Page(this, name, title, template, navigation, description);
+            page.SetContent("", "<h1>" + HttpUtility.HtmlEncode(title) + "</h1>");
+            Pages.Add(page);
 
             return page;
         }

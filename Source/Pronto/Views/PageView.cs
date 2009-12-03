@@ -6,6 +6,7 @@ using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Xml;
 using System.Xml.Linq;
+using System.Web;
 
 namespace Pronto.Views
 {
@@ -32,6 +33,7 @@ namespace Pronto.Views
             AddPageNameClassToBody(page, html);
             AddDescriptionMetaTag(page, html);
             ExpandEmptyNonSelfClosingElements(html);
+            ExpandRelativePaths(html, viewContext.HttpContext.Request);
             RenderHtml(html, viewContext, writer);
         }
 
@@ -91,6 +93,18 @@ namespace Pronto.Views
             foreach (var element in elementsToExpand)
             {
                 element.Add(new XText(""));
+            }
+        }
+
+        void ExpandRelativePaths(XDocument html, HttpRequestBase request)
+        {
+            foreach (var script in html.Descendants("script"))
+            {
+                var src = script.Attribute("src");
+                if (src != null && src.Value.StartsWith("~"))
+                {
+                    src.Value = request.ApplicationPath.TrimEnd('/') + src.Value.Substring(1);
+                }
             }
         }
 

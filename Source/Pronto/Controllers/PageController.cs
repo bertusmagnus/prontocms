@@ -81,11 +81,21 @@ namespace Pronto.Controllers
 
         [AuthorizeAdmin]
         [ValidateInput(false)]
-        public ActionResult Add(string newTitle, string template, bool? navigation, string description, string referrerPath)
+        public ActionResult Add(string newTitle, string template, bool? navigation, string description, string referrerPath, string mode)
         {
             Page newPage = null;
             websiteService.UpdatePage(referrerPath,
-                referrer => { newPage = referrer.AddNewSiblingPage(newTitle, template, navigation.GetValueOrDefault(), description ?? ""); }
+                referrer => 
+                {
+                    if (mode == "child")
+                    {
+                        newPage = referrer.AddNewChildPage(newTitle, template, navigation.GetValueOrDefault(), description ?? "");
+                    }
+                    else
+                    {
+                        newPage = referrer.AddNewSiblingPage(newTitle, template, navigation.GetValueOrDefault(), description ?? "");
+                    }
+                }
             );
             return Content(newPage.Path, "text/plain");
         }
