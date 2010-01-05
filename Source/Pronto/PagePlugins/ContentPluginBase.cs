@@ -6,6 +6,13 @@ namespace Pronto.PagePlugins
 {
     public abstract class ContentPluginBase : PagePluginBase
     {
+        public ContentPluginBase(WebsiteConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
+
+        readonly WebsiteConfiguration configuration;
+
         public override IEnumerable<XObject> Render(string data)
         {
             var contentString = GetContent(data);
@@ -18,9 +25,9 @@ namespace Pronto.PagePlugins
             return content;
         }
 
-        static XElement[] EmptyContentPlaceholder()
+        XElement[] EmptyContentPlaceholder()
         {
-            return new[] { new XElement("span", new XAttribute("class", "empty"), "Double-click here to enter some text.") };
+            return new[] { new XElement("span", new XAttribute("class", "empty"), configuration.EmptyContentAdminInstruction) };
         }
 
         protected abstract string GetContent(string contentId);

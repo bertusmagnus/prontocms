@@ -7,12 +7,19 @@ namespace Pronto.PagePlugins
     {
         public override IEnumerable<XObject> Render(string data)
         {
-            var title = Website.Title;
-            if (Page.Title.Length > 0 && data != "website")
+            if (data == "page")
             {
-                title += " » " + Page.Title;
+                yield return new XText(Page.Title);
             }
-            yield return new XText(title);
+            else
+            {
+                var title = Website.Title;
+                if (Page.Title.Length > 0 && data != "website")
+                {
+                    title += " » " + Page.Title;
+                }
+                yield return new XText(title);
+            }
         }
     }
 }

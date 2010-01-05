@@ -17,7 +17,8 @@ namespace Pronto.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return Redirect("~/");
+            var url = (Request.UrlReferrer == null) ? "~/" : Request.UrlReferrer.ToString();
+            return Redirect(url);
         }
 
         public ActionResult LogIn(string password)

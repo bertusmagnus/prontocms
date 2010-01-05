@@ -92,6 +92,7 @@ namespace Pronto
 
             Assert.Equal(5, newWebsite.Pages.Count);
             Assert.Equal("page-3", path);
+            Assert.NotNull(website.FindPage("child"));
         }
 
         [Fact]

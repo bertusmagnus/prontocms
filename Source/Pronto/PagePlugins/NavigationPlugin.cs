@@ -29,8 +29,9 @@ namespace Pronto.PagePlugins
         IEnumerable<XElement> BuildMenu(IEnumerable<IReadOnlyPage> pages, IReadOnlyPage currentPage, int level)
         {
             return from page in pages
+                   where IsUserAdmin || page.Navigation
                    select new XElement("li", 
-                       new XAttribute("data-path", page.Path),
+                       (IsUserAdmin ? new XAttribute("data-path", page.Path) : null),
                        new XAttribute("class", "level-" + level + (page.Path == currentPage.Path || page.Contains(currentPage) ? " current" : "")),
                        (page.Navigation ? null : new XAttribute("style", "display:none")),
                        GetLinkOrSpan(page, currentPage),
@@ -40,7 +41,7 @@ namespace Pronto.PagePlugins
 
         XElement SubMenu(IReadOnlyPage page, IReadOnlyPage currentPage, int level)
         {
-            if (page.Count() > 0)
+            if (IsUserAdmin || page.Count(c => c.Navigation) > 0)
             {
                 return new XElement("ul", BuildMenu(page, currentPage, level));
             }

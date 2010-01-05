@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Web.Caching;
+using System.IO;
 
 namespace Pronto
 {
@@ -71,7 +72,8 @@ namespace Pronto
         {
             if (resourceLock.IsWriteLockHeld)
             {
-                T resource = LoadResource(filename);
+                T resource = LoadResourceAndSaveIfFileDoesNotExist();
+
                 cache.Insert(CacheKey(), resource, new CacheDependency(filename));
                 return resource;
             }
@@ -80,7 +82,8 @@ namespace Pronto
                 resourceLock.EnterWriteLock();
                 try
                 {
-                    T resource = GetResourceFromCache() ?? LoadResource(filename);
+                    T resource = GetResourceFromCache() ?? LoadResourceAndSaveIfFileDoesNotExist();
+
                     cache.Insert(CacheKey(), resource, new CacheDependency(filename));
                     return resource;
                 }
@@ -89,6 +92,20 @@ namespace Pronto
                     resourceLock.ExitWriteLock();
                 }
             }
+        }
+
+        T LoadResourceAndSaveIfFileDoesNotExist()
+        {
+            Debug.Assert(resourceLock.IsWriteLockHeld);
+
+            T resource = LoadResource(filename);
+            if (!File.Exists(filename))
+            {
+                var dir = Path.GetDirectoryName(filename);
+                if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+                SaveResource(resource, filename);
+            }
+            return resource;
         }
 
         protected virtual string CacheKey()

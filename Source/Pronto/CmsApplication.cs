@@ -194,7 +194,8 @@ namespace Pronto
             return new WebsiteConfiguration(
                 Server.MapPath("~/app_data/website.xml"),
                 Server.MapPath("~/themes/" + WebConfigurationManager.AppSettings["theme"]),
-                Server.MapPath("~/templates")
+                Server.MapPath("~/templates"),
+                "Double-click to edit text."
             );
         }
 

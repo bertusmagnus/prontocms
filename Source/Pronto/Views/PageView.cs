@@ -98,12 +98,21 @@ namespace Pronto.Views
 
         void ExpandRelativePaths(XDocument html, HttpRequestBase request)
         {
+            var root = request.ApplicationPath.TrimEnd('/');
             foreach (var script in html.Descendants("script"))
             {
                 var src = script.Attribute("src");
                 if (src != null && src.Value.StartsWith("~"))
                 {
-                    src.Value = request.ApplicationPath.TrimEnd('/') + src.Value.Substring(1);
+                    src.Value = root + src.Value.Substring(1);
+                }
+            }
+            foreach (var a in html.Descendants("a"))
+            {
+                var href = a.Attribute("href");
+                if (href != null && href.Value.StartsWith("~"))
+                {
+                    href.Value = root + href.Value.Substring(1);
                 }
             }
         }

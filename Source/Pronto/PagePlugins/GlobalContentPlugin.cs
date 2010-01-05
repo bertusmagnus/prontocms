@@ -4,6 +4,11 @@ namespace Pronto.PagePlugins
 {
     public class GlobalContentPlugin : ContentPluginBase
     {
+        public GlobalContentPlugin(WebsiteConfiguration config)
+            : base(config)
+        {
+        }
+
         protected override string GetContent(string contentId)
         {
             return Website.GetContent(contentId);

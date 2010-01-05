@@ -18,6 +18,7 @@ namespace Pronto.Controllers
 
         public ActionResult GetPage(string path)
         {
+            path = TransformPath(path);
             return new PageViewResult(path, websiteService);
         }
 
@@ -109,6 +110,11 @@ namespace Pronto.Controllers
             string movedPath = referrerPath;
             websiteService.Replace(oldWebsite => oldWebsite.Reorganise(xml, ref movedPath));
             return Content(movedPath, "text/plain");
+        }
+
+        protected virtual string TransformPath(string path)
+        {
+            return path;
         }
 
         XDocument ReadXDocumentFromRequest()
