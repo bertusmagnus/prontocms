@@ -30,6 +30,10 @@ namespace Pronto.Views
             AddResetCss(html);
             AddJQuery(html);
             AddPluginScripts(html, scripts);
+            if (viewContext.HttpContext.IsDebuggingEnabled == false)
+            {
+                UseMinifiedJavascript(html, viewContext.HttpContext.Server);
+            }
             AddPageNameClassToBody(page, html);
             AddDescriptionMetaTag(page, html);
             ExpandEmptyNonSelfClosingElements(html);
@@ -99,20 +103,27 @@ namespace Pronto.Views
         void ExpandRelativePaths(XDocument html, HttpRequestBase request)
         {
             var root = request.ApplicationPath.TrimEnd('/');
-            foreach (var script in html.Descendants("script"))
+            foreach (var element in html.Descendants())
             {
-                var src = script.Attribute("src");
-                if (src != null && src.Value.StartsWith("~"))
+                XAttribute attribute = null;
+                var name = element.Name.LocalName;
+
+                if (name == "script" || name == "img")
                 {
-                    src.Value = root + src.Value.Substring(1);
+                    attribute = element.Attribute("src");
                 }
-            }
-            foreach (var a in html.Descendants("a"))
-            {
-                var href = a.Attribute("href");
-                if (href != null && href.Value.StartsWith("~"))
+                else if (name == "a" || name == "link")
                 {
-                    href.Value = root + href.Value.Substring(1);
+                    attribute = element.Attribute("href");
+                }
+                else if (name == "form")
+                {
+                    attribute = element.Attribute("action");
+                }
+
+                if (attribute != null && attribute.Value.StartsWith("~"))
+                {
+                    attribute.Value = root + attribute.Value.Substring(1);
                 }
             }
         }
@@ -155,6 +166,22 @@ namespace Pronto.Views
             foreach (var script in Enumerable.Reverse(scripts))
             {
                 lastScript.AddAfterSelf(script);
+            }
+        }
+        
+        void UseMinifiedJavascript(XDocument html, HttpServerUtilityBase server)
+        {
+            foreach (var script in html.Descendants("script")
+                .Where(s => s.Attribute("src") != null
+                    && !s.Attribute("src").Value.StartsWith("http:") 
+                    && !s.Attribute("src").Value.StartsWith("https:")))
+            {
+                var src = script.Attribute("src").Value;
+                var minSrc = Path.ChangeExtension(src, ".min.js");
+                if (File.Exists(server.MapPath(minSrc)))
+                {
+                    script.Attribute("src").Value = minSrc;
+                }
             }
         }
 

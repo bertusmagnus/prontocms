@@ -20,7 +20,7 @@ namespace Pronto.PagePlugins
             if (firstCall && IsUserAdmin)
             {
                 yield return new XElement("link",
-                    new XAttribute("href", UrlBase + "admin/admin.css"),
+                    new XAttribute("href", "~/admin/admin.css"),
                     new XAttribute("type", "text/css"),
                     new XAttribute("rel", "stylesheet")
                 );
@@ -42,10 +42,10 @@ namespace Pronto.PagePlugins
         IEnumerable<XObject> RenderAdmin()
         {
             yield return InlineScript(AdminWindowCmsJson());
-            yield return Script(UrlBase + "admin/jquery.form-2.28.js");
-            yield return Script(UrlBase + "admin/jquery.jtree.1.0.js");
-            yield return Script(UrlBase + "admin/fckeditor/fckeditor.js");
-            yield return Script(UrlBase + "admin/admin.js");
+            yield return Script("~/admin/jquery.form-2.28.js");
+            yield return Script("~/admin/jquery.jtree.1.0.js");
+            yield return Script("~/admin/fckeditor/fckeditor.js");
+            yield return Script("~/admin/admin.js");
         }
 
         IEnumerable<XObject> RenderAnonymous()
@@ -67,7 +67,7 @@ namespace Pronto.PagePlugins
             }
 
             yield return InlineScript(AnonymousWindowCmsJson());
-            yield return Script(UrlBase + "admin/" + CmsApplication.AuthType + "/anonymous.js");
+            yield return Script("~/admin/" + CmsApplication.AuthType + "/anonymous.js");
         }
 
         string AnonymousWindowCmsJson()

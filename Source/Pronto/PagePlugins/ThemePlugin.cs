@@ -12,7 +12,7 @@ namespace Pronto.PagePlugins
             var args = data.Split(' ');
             if (args.Length == 0) throw new ArgumentException("Invalid arguments for Theme plugin. Filename must be specified e.g. <?theme myfile.css?>");
 
-            var url = UrlBase + "_theme/" + args[0];
+            var url = "~/_theme/" + args[0];
             yield return new XElement("link",
                 new XAttribute("href", url),
                 new XAttribute("type", "text/css"),

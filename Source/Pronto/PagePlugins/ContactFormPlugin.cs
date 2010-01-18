@@ -11,7 +11,6 @@ namespace Pronto.PagePlugins
         {
             var sendSuccess = Page.GetContent("send-success").ParseXObjects();
             var sendUrl = Url.RouteUrl("Plugin", new { controller = "contactform", action = "send" });
-            var clientScriptUrl = Url.RouteUrl("Plugin", new { controller = "contactform", action = "clientscript" });
 
             yield return new XElement("form", 
                 new XAttribute("id", "contact-form"), 
@@ -38,10 +37,21 @@ namespace Pronto.PagePlugins
                 new XAttribute("style", "display:none"),
                 sendSuccess
             );
-            yield return new XElement("script", 
-                new XAttribute("type", "text/javascript"), 
-                new XAttribute("src", clientScriptUrl)
-            );
+        }
+
+        public override IEnumerable<XElement> GetScripts(bool firstUse)
+        {
+            if (firstUse)
+            {
+                yield return new XElement("script", 
+                    new XAttribute("type", "text/javascript"), 
+                    new XAttribute("src", "~/_plugins/contactform/clientscript")
+                );
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 }
