@@ -7,12 +7,19 @@ namespace Pronto.PagePlugins
 {
     public class ThemePlugin : PagePluginBase
     {
+        public ThemePlugin(WebsiteConfiguration config)
+        {
+            this.config = config;
+        }
+
+        readonly WebsiteConfiguration config;
+
         public override IEnumerable<XObject> Render(string data)
         {
             var args = data.Split(' ');
             if (args.Length == 0) throw new ArgumentException("Invalid arguments for Theme plugin. Filename must be specified e.g. <?theme myfile.css?>");
 
-            var url = "~/_theme/" + args[0];
+            var url = "~/themes/" + config.ThemeName + "/" + args[0];
             yield return new XElement("link",
                 new XAttribute("href", url),
                 new XAttribute("type", "text/css"),

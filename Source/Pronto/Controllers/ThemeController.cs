@@ -22,7 +22,7 @@ namespace Pronto.Controllers
                 return new EmptyResult();
             }
 
-            var filename = Path.Combine(websiteConfiguration.ThemeDirectory, path);
+            var filename = Path.Combine(Server.MapPath("~/themes/" + websiteConfiguration.ThemeName), path);
             if (System.IO.File.Exists(filename))
             {
                 return FileIfModified(filename);
@@ -32,28 +32,6 @@ namespace Pronto.Controllers
                 Response.StatusCode = 404;
                 return new EmptyResult();
             }
-        }
-
-        [AuthorizeAdmin]
-        [AcceptVerbs(HttpVerbs.Put)]
-        public ActionResult FileAction(string path, string css)
-        {
-            if (string.IsNullOrEmpty(path) || path.Contains(".."))
-            {
-                Response.StatusCode = 404;
-                return new EmptyResult();
-            }
-
-            var filename = Path.Combine(websiteConfiguration.ThemeDirectory, path);
-            if (System.IO.File.Exists(filename))
-            {
-                System.IO.File.WriteAllText(filename, css);
-            }
-            else
-            {
-                Response.StatusCode = 404;
-            }
-            return new EmptyResult();
         }
 
         ActionResult FileIfModified(string filename)

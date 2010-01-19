@@ -116,16 +116,16 @@ namespace Pronto
                     new[] { typeof(PageController).Namespace });
 
                 routes.MapRoute(
+                    "Theme",
+                    "_theme/{*path}",
+                    new { controller = "Theme", action = "FileAction" },
+                    new[] { typeof(ThemeController).Namespace });
+
+                routes.MapRoute(
                     "Auth",
                     "_auth/{action}",
                     new { controller = AuthType },
                     new[] { typeof(PageController).Namespace });
-
-                routes.MapRoute(
-                    "ThemeFile",
-                    "_theme/{*path}",
-                    new { controller = "Theme", action = "FileAction" },
-                    new[] { typeof(ThemeController).Namespace });
 
                 routes.MapRoute(
                     "Page",
@@ -193,7 +193,7 @@ namespace Pronto
         {
             return new WebsiteConfiguration(
                 Server.MapPath("~/app_data/website.xml"),
-                Server.MapPath("~/themes/" + WebConfigurationManager.AppSettings["theme"]),
+                WebConfigurationManager.AppSettings["theme"],
                 Server.MapPath("~/templates"),
                 "Double-click to edit text."
             );

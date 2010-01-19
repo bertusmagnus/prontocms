@@ -81,6 +81,7 @@
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\SimplePasswordController.cs" />
+    <Compile Include="Controllers\ThemeController.cs" />
     <Compile Include="FileBasedResourceService.cs" />
     <Compile Include="IReadOnlyPage.cs" />
     <Compile Include="IReadOnlyWebsite.cs" />
@@ -91,7 +92,6 @@
     <Compile Include="WebsiteConfiguration.cs" />
     <Compile Include="LockManager.cs" />
     <Compile Include="Views\PageViewResult.cs" />
-    <Compile Include="Controllers\ThemeController.cs" />
     <Compile Include="HtmlHelper.cs" />
     <Compile Include="IPageContainer.cs" />
     <Compile Include="IPagePlugin.cs" />

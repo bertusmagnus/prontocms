@@ -34,6 +34,7 @@ namespace Pronto.Views
             {
                 UseMinifiedJavascript(html, viewContext.HttpContext.Server);
             }
+            VersionScriptAndStylesheetUrls(html, viewContext.HttpContext.Server);
             AddPageNameClassToBody(page, html);
             AddDescriptionMetaTag(page, html);
             ExpandEmptyNonSelfClosingElements(html);
@@ -181,6 +182,40 @@ namespace Pronto.Views
                 if (File.Exists(server.MapPath(minSrc)))
                 {
                     script.Attribute("src").Value = minSrc;
+                }
+            }
+        }
+
+        void VersionScriptAndStylesheetUrls(XDocument html, HttpServerUtilityBase server)
+        {
+            var srcs = from element in html.Descendants("script")
+                let attr = element.Attribute("src")
+                where attr != null
+                select attr;
+
+            var hrefs = from element in html.Descendants("link")
+                let typeAttr = element.Attribute("type")
+                let hrefAttr = element.Attribute("href")
+                where typeAttr != null && hrefAttr != null && typeAttr.Value == "text/css"
+                select hrefAttr;
+
+            foreach (var attr in srcs.Concat(hrefs).Where(a => 
+                !(a.Value.StartsWith("http:") || a.Value.StartsWith("https:"))))
+            {
+                var url = attr.Value;
+                var filename = server.MapPath(url);
+                if (File.Exists(filename))
+                {
+                    if (url.Contains("?"))
+                    {
+                        url += "&";
+                    }
+                    else
+                    {
+                        url += "?";
+                    }
+                    url += "_version=" + File.GetLastWriteTimeUtc(filename).Ticks;
+                    attr.Value = url;
                 }
             }
         }
