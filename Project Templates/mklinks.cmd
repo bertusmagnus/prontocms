@@ -1,11 +1,11 @@
-if exist VB\ProntoWebApplication\Libraries rmdir VB\ProntoWebApplication\Libraries
-if exist VB\ProntoWebApplication\admin rmdir VB\ProntoWebApplication\admin
+if exist VB\ProntoCmsWebApplication\Libraries rmdir VB\ProntoCmsWebApplication\Libraries
+if exist VB\ProntoCmsWebApplication\admin rmdir VB\ProntoCmsWebApplication\admin
 
-mklink /J VB\ProntoWebApplication\Libraries ..\Source\Pronto\bin\Release
-mklink /J VB\ProntoWebApplication\admin ..\Source\ClientAdmin
+mklink /J VB\ProntoCmsWebApplication\Libraries ..\Source\Pronto\bin\Release
+mklink /J VB\ProntoCmsWebApplication\admin ..\Source\ClientAdmin
 
-if exist CSharp\ProntoWebApplication\Libraries rmdir CSharp\ProntoWebApplication\Libraries
-if exist CSharp\ProntoWebApplication\admin rmdir CSharp\ProntoWebApplication\admin
+if exist CSharp\ProntoCmsWebApplication\Libraries rmdir CSharp\ProntoCmsWebApplication\Libraries
+if exist CSharp\ProntoCmsWebApplication\admin rmdir CSharp\ProntoCmsWebApplication\admin
 
-mklink /J CSharp\ProntoWebApplication\Libraries ..\Source\Pronto\bin\Release
-mklink /J CSharp\ProntoWebApplication\admin ..\Source\ClientAdmin
+mklink /J CSharp\ProntoCmsWebApplication\Libraries ..\Source\Pronto\bin\Release
+mklink /J CSharp\ProntoCmsWebApplication\admin ..\Source\ClientAdmin
