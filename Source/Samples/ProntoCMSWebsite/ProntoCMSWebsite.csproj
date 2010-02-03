@@ -413,7 +413,7 @@
     <Content Include="Libraries\FredCK.FCKeditorV2.dll" />
     <Content Include="Libraries\Pronto.dll" />
     <Content Include="Libraries\Pronto.pdb" />
-    <Content Include="templates\Master.htm" />
+    <Content Include="templates\Master.xml" />
     <Content Include="templates\Page.htm" />
     <Content Include="themes\plain\minimal.css" />
     <Content Include="Web.config" />

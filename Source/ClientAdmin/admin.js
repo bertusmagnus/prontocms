@@ -1,4 +1,5 @@
-﻿$.fn.editable = function(options) {
+﻿$.fn.reverse = [].reverse;
+$.fn.editable = function(options) {
     function getUrl(id, global) {
         if (global) {
             return cms.urlBase + '_content/getglobalcontent/' + id;
@@ -26,6 +27,7 @@
 
     $(this)
         .data('global', options.global)
+        .reverse()
         .each(function() {
             var action = $('<li class="cms-edit-page-content"><a href="#">Edit Page ' + ($(this).attr('data-content-id') || 'Text') + '</a></li>');
             action
@@ -35,7 +37,7 @@
                     function() { $(this).data('target').removeClass('cms-editable-hover'); }
                 )
                 .click(function() { startEditing($(this).data('target')); return false; });
-            $('#cms-actions').append(action);
+            $('#cms-actions').prepend(action);
         });
 };
 
@@ -501,7 +503,6 @@ $(function() {
     function createToolbar() {
         $('body').append(
         '<div id="cms-toolbar">\
-            <h1>Admin Actions:</h1>\
             <ul id="cms-actions">\
                 <li class="cms-edit-page"><a href="#">Page Settings</a></li>\
                 <li class="cms-delete-page"><a href="#">Delete This Page</a></li>\
