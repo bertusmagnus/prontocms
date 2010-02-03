@@ -26,13 +26,17 @@
 
     $(this)
         .data('global', options.global)
-        .attr('title', 'Double click here to edit this text')
-        .hover(
-            function() { $(this).addClass('cms-editable-hover'); },
-            function() { $(this).removeClass('cms-editable-hover'); }
-        )
-        .dblclick(function() { startEditing($(this)); return false; })
-        .css('min-height', '1em');
+        .each(function() {
+            var action = $('<li class="cms-edit-page-content"><a href="#">Edit Page ' + ($(this).attr('data-content-id') || 'Text') + '</a></li>');
+            action
+                .data('target', $(this))
+                .hover(
+                    function() { $(this).data('target').addClass('cms-editable-hover'); },
+                    function() { $(this).data('target').removeClass('cms-editable-hover'); }
+                )
+                .click(function() { startEditing($(this).data('target')); return false; });
+            $('#cms-actions').append(action);
+        });
 };
 
 $.fn.sortableMenu = function() {
@@ -488,17 +492,17 @@ $(function() {
     } else if (cms.authType == 'SimplePassword') {
         cms.dialogs.changeSimplePassword = new ChangeSimplePassword();
     }
-    
+
+    createToolbar();
     $('.editable').editable({ global: false });
     $('.global-editable').editable({ global: true });
     $('#cms-navigation').sortableMenu();
-    createToolbar();
 
     function createToolbar() {
         $('body').append(
         '<div id="cms-toolbar">\
             <h1>Admin Actions:</h1>\
-            <ul>\
+            <ul id="cms-actions">\
                 <li class="cms-edit-page"><a href="#">Page Settings</a></li>\
                 <li class="cms-delete-page"><a href="#">Delete This Page</a></li>\
                 <li class="cms-new-page"><a href="#">Add A New Page</a></li>\

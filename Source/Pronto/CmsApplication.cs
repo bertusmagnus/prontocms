@@ -195,7 +195,7 @@ namespace Pronto
                 Server.MapPath("~/app_data/website.xml"),
                 WebConfigurationManager.AppSettings["theme"],
                 Server.MapPath("~/templates"),
-                "Double-click to edit text."
+                ""
             );
         }
 

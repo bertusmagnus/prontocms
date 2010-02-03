@@ -60,7 +60,8 @@
 .cms-new-page a {
 	background-image: url(images/add.png);
 }
-.cms-edit-page a {
+.cms-edit-page a,
+.cms-edit-page-content a {
 	background-image: url(images/edit.png);
 }
 .cms-delete-page a {
