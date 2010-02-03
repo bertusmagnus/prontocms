@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<website title="My Site">
-  <page name="" title="" template="Page.htm">
-    <content id=""><![CDATA[<p>Hello, World!</p>]]></content>
-  </page>
-</website>
