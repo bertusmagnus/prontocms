@@ -493,10 +493,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="templates\Page.htm" />
+    <Content Include="themes\plain\site.css" />
     <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="themes\plain\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

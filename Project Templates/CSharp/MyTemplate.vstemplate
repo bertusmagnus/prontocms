@@ -1,0 +1,498 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Pronto CMS Web Application</Name>
+    <Description>Pronto CMS Web Application using C#</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Pronto CMS Web Application</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ProntoCmsWebApplication.csproj" File="ProntoCmsWebApplication.csproj" ReplaceParameters="true">
+      <Folder Name="admin" TargetFolderName="admin">
+        <ProjectItem ReplaceParameters="true" TargetFileName="admin.css">admin.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="admin.js">admin.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="admin.min.js">admin.min.js</ProjectItem>
+        <Folder Name="dialogs" TargetFolderName="dialogs">
+          <ProjectItem ReplaceParameters="true" TargetFileName="AdminUsers.htm">AdminUsers.htm</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ChangeSimplePassword.htm">ChangeSimplePassword.htm</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="EditContent.htm">EditContent.htm</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="EditPage.htm">EditPage.htm</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="NewPage.htm">NewPage.htm</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="NewToken.htm">NewToken.htm</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="OrganisePages.htm">OrganisePages.htm</ProjectItem>
+        </Folder>
+        <Folder Name="fckeditor" TargetFolderName="fckeditor">
+          <Folder Name="editor" TargetFolderName="editor">
+            <Folder Name="css" TargetFolderName="css">
+              <Folder Name="behaviors" TargetFolderName="behaviors">
+                <ProjectItem ReplaceParameters="true" TargetFileName="disablehandles.htc">disablehandles.htc</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="showtableborders.htc">showtableborders.htc</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_editorarea.css">fck_editorarea.css</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_internal.css">fck_internal.css</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_showtableborders_gecko.css">fck_showtableborders_gecko.css</ProjectItem>
+              <Folder Name="images" TargetFolderName="images">
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_address.png">block_address.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_blockquote.png">block_blockquote.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_div.png">block_div.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_h1.png">block_h1.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_h2.png">block_h2.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_h3.png">block_h3.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_h4.png">block_h4.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_h5.png">block_h5.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_h6.png">block_h6.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_p.png">block_p.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="block_pre.png">block_pre.png</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_anchor.gif">fck_anchor.gif</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_flashlogo.gif">fck_flashlogo.gif</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_hiddenfield.gif">fck_hiddenfield.gif</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_pagebreak.gif">fck_pagebreak.gif</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_plugin.gif">fck_plugin.gif</ProjectItem>
+              </Folder>
+            </Folder>
+            <Folder Name="dialog" TargetFolderName="dialog">
+              <Folder Name="common" TargetFolderName="common">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog_common.css">fck_dialog_common.css</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog_common.js">fck_dialog_common.js</ProjectItem>
+                <Folder Name="images" TargetFolderName="images">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="locked.gif">locked.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="reset.gif">reset.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="unlocked.gif">unlocked.gif</ProjectItem>
+                </Folder>
+              </Folder>
+              <Folder Name="fck_about" TargetFolderName="fck_about">
+                <ProjectItem ReplaceParameters="false" TargetFileName="logo_fckeditor.gif">logo_fckeditor.gif</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="logo_fredck.gif">logo_fredck.gif</ProjectItem>
+                <Folder Name="sponsors" TargetFolderName="sponsors">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="spellchecker_net.gif">spellchecker_net.gif</ProjectItem>
+                </Folder>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_about.html">fck_about.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_anchor.html">fck_anchor.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_button.html">fck_button.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_checkbox.html">fck_checkbox.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_colorselector.html">fck_colorselector.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_div.html">fck_div.html</ProjectItem>
+              <Folder Name="fck_docprops" TargetFolderName="fck_docprops">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_document_preview.html">fck_document_preview.html</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_docprops.html">fck_docprops.html</ProjectItem>
+              <Folder Name="fck_flash" TargetFolderName="fck_flash">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_flash.js">fck_flash.js</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_flash_preview.html">fck_flash_preview.html</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_flash.html">fck_flash.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_form.html">fck_form.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_hiddenfield.html">fck_hiddenfield.html</ProjectItem>
+              <Folder Name="fck_image" TargetFolderName="fck_image">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_image.js">fck_image.js</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_image_preview.html">fck_image_preview.html</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_image.html">fck_image.html</ProjectItem>
+              <Folder Name="fck_link" TargetFolderName="fck_link">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_link.js">fck_link.js</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_link.html">fck_link.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_listprop.html">fck_listprop.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_paste.html">fck_paste.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_radiobutton.html">fck_radiobutton.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_replace.html">fck_replace.html</ProjectItem>
+              <Folder Name="fck_select" TargetFolderName="fck_select">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_select.js">fck_select.js</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_select.html">fck_select.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_smiley.html">fck_smiley.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_source.html">fck_source.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_specialchar.html">fck_specialchar.html</ProjectItem>
+              <Folder Name="fck_spellerpages" TargetFolderName="fck_spellerpages">
+                <Folder Name="spellerpages" TargetFolderName="spellerpages">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="blank.html">blank.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="controls.html">controls.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="controlWindow.js">controlWindow.js</ProjectItem>
+                  <Folder Name="server-scripts" TargetFolderName="server-scripts">
+                    <ProjectItem ReplaceParameters="false" TargetFileName="spellchecker.cfm">spellchecker.cfm</ProjectItem>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="spellchecker.php">spellchecker.php</ProjectItem>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="spellchecker.pl">spellchecker.pl</ProjectItem>
+                  </Folder>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="spellchecker.html">spellchecker.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="spellChecker.js">spellChecker.js</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="spellerStyle.css">spellerStyle.css</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wordWindow.js">wordWindow.js</ProjectItem>
+                </Folder>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_spellerpages.html">fck_spellerpages.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_table.html">fck_table.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_tablecell.html">fck_tablecell.html</ProjectItem>
+              <Folder Name="fck_template" TargetFolderName="fck_template">
+                <Folder Name="images" TargetFolderName="images">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="template1.gif">template1.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="template2.gif">template2.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="template3.gif">template3.gif</ProjectItem>
+                </Folder>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_template.html">fck_template.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_textarea.html">fck_textarea.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_textfield.html">fck_textfield.html</ProjectItem>
+            </Folder>
+            <Folder Name="dtd" TargetFolderName="dtd">
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_dtd_test.html">fck_dtd_test.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_xhtml10strict.js">fck_xhtml10strict.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fck_xhtml10transitional.js">fck_xhtml10transitional.js</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="fckdebug.html">fckdebug.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="fckdialog.html">fckdialog.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="fckeditor.html">fckeditor.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="fckeditor.original.html">fckeditor.original.html</ProjectItem>
+            <Folder Name="filemanager" TargetFolderName="filemanager">
+              <Folder Name="browser" TargetFolderName="browser">
+                <Folder Name="default" TargetFolderName="default">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="browser.css">browser.css</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="browser.html">browser.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="frmactualfolder.html">frmactualfolder.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="frmcreatefolder.html">frmcreatefolder.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="frmfolders.html">frmfolders.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="frmresourceslist.html">frmresourceslist.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="frmresourcetype.html">frmresourcetype.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="frmupload.html">frmupload.html</ProjectItem>
+                  <Folder Name="images" TargetFolderName="images">
+                    <ProjectItem ReplaceParameters="false" TargetFileName="ButtonArrow.gif">ButtonArrow.gif</ProjectItem>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="Folder.gif">Folder.gif</ProjectItem>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="Folder32.gif">Folder32.gif</ProjectItem>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="FolderOpened.gif">FolderOpened.gif</ProjectItem>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="FolderOpened32.gif">FolderOpened32.gif</ProjectItem>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="FolderUp.gif">FolderUp.gif</ProjectItem>
+                    <Folder Name="icons" TargetFolderName="icons">
+                      <Folder Name="32" TargetFolderName="32">
+                        <ProjectItem ReplaceParameters="false" TargetFileName="ai.gif">ai.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="avi.gif">avi.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="bmp.gif">bmp.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="cs.gif">cs.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="default.icon.gif">default.icon.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="dll.gif">dll.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="doc.gif">doc.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="exe.gif">exe.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="fla.gif">fla.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="gif.gif">gif.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="htm.gif">htm.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="html.gif">html.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="jpg.gif">jpg.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="js.gif">js.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="mdb.gif">mdb.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="mp3.gif">mp3.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="pdf.gif">pdf.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="png.gif">png.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="ppt.gif">ppt.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="rdp.gif">rdp.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="swf.gif">swf.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="swt.gif">swt.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="txt.gif">txt.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="vsd.gif">vsd.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="xls.gif">xls.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="xml.gif">xml.gif</ProjectItem>
+                        <ProjectItem ReplaceParameters="false" TargetFileName="zip.gif">zip.gif</ProjectItem>
+                      </Folder>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="ai.gif">ai.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="avi.gif">avi.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="bmp.gif">bmp.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="cs.gif">cs.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="default.icon.gif">default.icon.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="dll.gif">dll.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="doc.gif">doc.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="exe.gif">exe.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="fla.gif">fla.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="gif.gif">gif.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="htm.gif">htm.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="html.gif">html.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="jpg.gif">jpg.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="js.gif">js.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="mdb.gif">mdb.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="mp3.gif">mp3.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="pdf.gif">pdf.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="png.gif">png.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="ppt.gif">ppt.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="rdp.gif">rdp.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="swf.gif">swf.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="swt.gif">swt.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="txt.gif">txt.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="vsd.gif">vsd.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="xls.gif">xls.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="xml.gif">xml.gif</ProjectItem>
+                      <ProjectItem ReplaceParameters="false" TargetFileName="zip.gif">zip.gif</ProjectItem>
+                    </Folder>
+                    <ProjectItem ReplaceParameters="false" TargetFileName="spacer.gif">spacer.gif</ProjectItem>
+                  </Folder>
+                  <Folder Name="js" TargetFolderName="js">
+                    <ProjectItem ReplaceParameters="true" TargetFileName="common.js">common.js</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="fckxml.js">fckxml.js</ProjectItem>
+                  </Folder>
+                </Folder>
+              </Folder>
+              <Folder Name="connectors" TargetFolderName="connectors">
+                <Folder Name="aspx" TargetFolderName="aspx">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="config.ascx">config.ascx</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="connector.aspx">connector.aspx</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="upload.aspx">upload.aspx</ProjectItem>
+                </Folder>
+                <ProjectItem ReplaceParameters="true" TargetFileName="test.html">test.html</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="uploadtest.html">uploadtest.html</ProjectItem>
+              </Folder>
+            </Folder>
+            <Folder Name="images" TargetFolderName="images">
+              <ProjectItem ReplaceParameters="false" TargetFileName="anchor.gif">anchor.gif</ProjectItem>
+              <ProjectItem ReplaceParameters="false" TargetFileName="arrow_ltr.gif">arrow_ltr.gif</ProjectItem>
+              <ProjectItem ReplaceParameters="false" TargetFileName="arrow_rtl.gif">arrow_rtl.gif</ProjectItem>
+              <Folder Name="smiley" TargetFolderName="smiley">
+                <Folder Name="msn" TargetFolderName="msn">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="angel_smile.gif">angel_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="angry_smile.gif">angry_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="broken_heart.gif">broken_heart.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="cake.gif">cake.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="confused_smile.gif">confused_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="cry_smile.gif">cry_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="devil_smile.gif">devil_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="embaressed_smile.gif">embaressed_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="envelope.gif">envelope.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="heart.gif">heart.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="kiss.gif">kiss.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="lightbulb.gif">lightbulb.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="omg_smile.gif">omg_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="regular_smile.gif">regular_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="sad_smile.gif">sad_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="shades_smile.gif">shades_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="teeth_smile.gif">teeth_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="thumbs_down.gif">thumbs_down.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="thumbs_up.gif">thumbs_up.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="tounge_smile.gif">tounge_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="whatchutalkingabout_smile.gif">whatchutalkingabout_smile.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="wink_smile.gif">wink_smile.gif</ProjectItem>
+                </Folder>
+              </Folder>
+              <ProjectItem ReplaceParameters="false" TargetFileName="spacer.gif">spacer.gif</ProjectItem>
+            </Folder>
+            <Folder Name="js" TargetFolderName="js">
+              <ProjectItem ReplaceParameters="true" TargetFileName="fckadobeair.js">fckadobeair.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fckeditorcode_gecko.js">fckeditorcode_gecko.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fckeditorcode_ie.js">fckeditorcode_ie.js</ProjectItem>
+            </Folder>
+            <Folder Name="lang" TargetFolderName="lang">
+              <ProjectItem ReplaceParameters="true" TargetFileName="_translationstatus.txt">_translationstatus.txt</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="af.js">af.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="ar.js">ar.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="bg.js">bg.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="bn.js">bn.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="bs.js">bs.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="ca.js">ca.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="cs.js">cs.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="da.js">da.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="de.js">de.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="el.js">el.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="en-au.js">en-au.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="en-ca.js">en-ca.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="en-uk.js">en-uk.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="en.js">en.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="eo.js">eo.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="es.js">es.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="et.js">et.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="eu.js">eu.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fa.js">fa.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fi.js">fi.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fo.js">fo.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fr-ca.js">fr-ca.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="fr.js">fr.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="gl.js">gl.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="gu.js">gu.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="he.js">he.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="hi.js">hi.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="hr.js">hr.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="hu.js">hu.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="is.js">is.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="it.js">it.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="ja.js">ja.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="km.js">km.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="ko.js">ko.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="lt.js">lt.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="lv.js">lv.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="mn.js">mn.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="ms.js">ms.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="nb.js">nb.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="nl.js">nl.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="no.js">no.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="pl.js">pl.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="pt-br.js">pt-br.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="pt.js">pt.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="ro.js">ro.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="ru.js">ru.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="sk.js">sk.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="sl.js">sl.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="sr-latn.js">sr-latn.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="sr.js">sr.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="sv.js">sv.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="th.js">th.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="tr.js">tr.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="uk.js">uk.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="vi.js">vi.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="zh-cn.js">zh-cn.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="zh.js">zh.js</ProjectItem>
+            </Folder>
+            <Folder Name="plugins" TargetFolderName="plugins">
+              <Folder Name="autogrow" TargetFolderName="autogrow">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fckplugin.js">fckplugin.js</ProjectItem>
+              </Folder>
+              <Folder Name="bbcode" TargetFolderName="bbcode">
+                <Folder Name="_sample" TargetFolderName="_sample">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="sample.config.js">sample.config.js</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="sample.html">sample.html</ProjectItem>
+                </Folder>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fckplugin.js">fckplugin.js</ProjectItem>
+              </Folder>
+              <Folder Name="dragresizetable" TargetFolderName="dragresizetable">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fckplugin.js">fckplugin.js</ProjectItem>
+              </Folder>
+              <Folder Name="placeholder" TargetFolderName="placeholder">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_placeholder.html">fck_placeholder.html</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fckplugin.js">fckplugin.js</ProjectItem>
+                <Folder Name="lang" TargetFolderName="lang">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="de.js">de.js</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="en.js">en.js</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="es.js">es.js</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="fr.js">fr.js</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="it.js">it.js</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="pl.js">pl.js</ProjectItem>
+                </Folder>
+                <ProjectItem ReplaceParameters="false" TargetFileName="placeholder.gif">placeholder.gif</ProjectItem>
+              </Folder>
+              <Folder Name="simplecommands" TargetFolderName="simplecommands">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fckplugin.js">fckplugin.js</ProjectItem>
+              </Folder>
+              <Folder Name="tablecommands" TargetFolderName="tablecommands">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fckplugin.js">fckplugin.js</ProjectItem>
+              </Folder>
+            </Folder>
+            <Folder Name="skins" TargetFolderName="skins">
+              <ProjectItem ReplaceParameters="true" TargetFileName="_fckviewstrips.html">_fckviewstrips.html</ProjectItem>
+              <Folder Name="default" TargetFolderName="default">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog.css">fck_dialog.css</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog_ie6.js">fck_dialog_ie6.js</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_editor.css">fck_editor.css</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_strip.gif">fck_strip.gif</ProjectItem>
+                <Folder Name="images" TargetFolderName="images">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.gif">dialog.sides.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.png">dialog.sides.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.rtl.png">dialog.sides.rtl.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="sprites.gif">sprites.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="sprites.png">sprites.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.arrowright.gif">toolbar.arrowright.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.buttonarrow.gif">toolbar.buttonarrow.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.collapse.gif">toolbar.collapse.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.end.gif">toolbar.end.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.expand.gif">toolbar.expand.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.separator.gif">toolbar.separator.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.start.gif">toolbar.start.gif</ProjectItem>
+                </Folder>
+              </Folder>
+              <Folder Name="office2003" TargetFolderName="office2003">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog.css">fck_dialog.css</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog_ie6.js">fck_dialog_ie6.js</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_editor.css">fck_editor.css</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_strip.gif">fck_strip.gif</ProjectItem>
+                <Folder Name="images" TargetFolderName="images">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.gif">dialog.sides.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.png">dialog.sides.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.rtl.png">dialog.sides.rtl.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="sprites.gif">sprites.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="sprites.png">sprites.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.arrowright.gif">toolbar.arrowright.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.bg.gif">toolbar.bg.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.buttonarrow.gif">toolbar.buttonarrow.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.collapse.gif">toolbar.collapse.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.end.gif">toolbar.end.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.expand.gif">toolbar.expand.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.separator.gif">toolbar.separator.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.start.gif">toolbar.start.gif</ProjectItem>
+                </Folder>
+              </Folder>
+              <Folder Name="silver" TargetFolderName="silver">
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog.css">fck_dialog.css</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_dialog_ie6.js">fck_dialog_ie6.js</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="fck_editor.css">fck_editor.css</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="fck_strip.gif">fck_strip.gif</ProjectItem>
+                <Folder Name="images" TargetFolderName="images">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.gif">dialog.sides.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.png">dialog.sides.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="dialog.sides.rtl.png">dialog.sides.rtl.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="sprites.gif">sprites.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="sprites.png">sprites.png</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.arrowright.gif">toolbar.arrowright.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.buttonarrow.gif">toolbar.buttonarrow.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.buttonbg.gif">toolbar.buttonbg.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.collapse.gif">toolbar.collapse.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.end.gif">toolbar.end.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.expand.gif">toolbar.expand.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.separator.gif">toolbar.separator.gif</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="toolbar.start.gif">toolbar.start.gif</ProjectItem>
+                </Folder>
+              </Folder>
+            </Folder>
+            <Folder Name="wsc" TargetFolderName="wsc">
+              <ProjectItem ReplaceParameters="true" TargetFileName="ciframe.html">ciframe.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="tmpFrameset.html">tmpFrameset.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="w.html">w.html</ProjectItem>
+            </Folder>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fckconfig.js">fckconfig.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fckeditor.js">fckeditor.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fckeditor.min.js">fckeditor.min.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fckpackager.xml">fckpackager.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fckstyles.xml">fckstyles.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fcktemplates.xml">fcktemplates.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="license.txt">license.txt</ProjectItem>
+        </Folder>
+        <Folder Name="images" TargetFolderName="images">
+          <ProjectItem ReplaceParameters="false" TargetFileName="add.png">add.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="busy.gif">busy.gif</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="delete.png">delete.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="edit.png">edit.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="logout.png">logout.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="organise.png">organise.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="password.png">password.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="users.png">users.png</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.form-2.28.js">jquery.form-2.28.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.form-2.28.min.js">jquery.form-2.28.min.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.jtree.1.0.js">jquery.jtree.1.0.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.jtree.1.0.min.js">jquery.jtree.1.0.min.js</ProjectItem>
+        <Folder Name="OpenID" TargetFolderName="OpenID">
+          <ProjectItem ReplaceParameters="true" TargetFileName="anonymous.js">anonymous.js</ProjectItem>
+        </Folder>
+        <Folder Name="SimplePassword" TargetFolderName="SimplePassword">
+          <ProjectItem ReplaceParameters="true" TargetFileName="anonymous.js">anonymous.js</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="App_Data" TargetFolderName="App_Data">
+        <ProjectItem ReplaceParameters="true" TargetFileName="website.xml">website.xml</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx">Default.aspx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax">Global.asax</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="templates" TargetFolderName="templates">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Page.htm">Page.htm</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Site.master">Site.master</ProjectItem>
+      </Folder>
+      <Folder Name="themes" TargetFolderName="themes">
+        <Folder Name="plain" TargetFolderName="plain">
+          <ProjectItem ReplaceParameters="true" TargetFileName="site.css">site.css</ProjectItem>
+        </Folder>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
