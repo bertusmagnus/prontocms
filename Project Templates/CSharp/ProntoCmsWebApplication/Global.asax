@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="Pronto.CmsApplication" %>
+﻿<%@ Application Inherits="Pronto.CmsApplication, Pronto" %>

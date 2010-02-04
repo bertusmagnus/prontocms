@@ -36,22 +36,10 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=1.4.3.536, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="Autofac.Integration.Web, Version=1.4.3.536, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Autofac.Integration.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenId, Version=2.5.4.9045, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\DotNetOpenId.dll</HintPath>
-    </Reference>
-    <Reference Include="Pronto, Version=1.5.3686.36308, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Pronto.dll</HintPath>
-    </Reference>
+    <Reference Include="Autofac, Version=1.4.3.536, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL" />
+    <Reference Include="Autofac.Integration.Web, Version=1.4.3.536, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL" />
+    <Reference Include="DotNetOpenId, Version=2.5.4.9045, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL" />
+    <Reference Include="Pronto, Version=1.5.3686.36308, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -490,6 +478,19 @@
     <Content Include="admin\OpenID\anonymous.js" />
     <Content Include="admin\SimplePassword\anonymous.js" />
     <Content Include="App_Data\website.xml" />
+    <Content Include="bin\Autofac.dll" />
+    <Content Include="bin\Autofac.Integration.Web.dll" />
+    <Content Include="bin\Autofac.Integration.Web.pdb" />
+    <Content Include="bin\Autofac.pdb" />
+    <Content Include="bin\Autofac.xml" />
+    <Content Include="bin\DotNetOpenId.dll" />
+    <Content Include="bin\DotNetOpenId.pdb" />
+    <Content Include="bin\DotNetOpenId.xml" />
+    <Content Include="bin\Pronto.dll" />
+    <Content Include="bin\Pronto.pdb" />
+    <Content Include="bin\ProntoCmsWebApplication.dll" />
+    <Content Include="bin\ProntoCmsWebApplication.pdb" />
+    <Content Include="bin\ProntoCmsWebApplication.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="templates\Page.htm" />
