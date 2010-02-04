@@ -498,6 +498,12 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="site.css">site.css</ProjectItem>
         </Folder>
       </Folder>
+      <Folder Name="Libraries" TargetFolderName="Libraries">
+        <ProjectItem TargetFileName="Autofac.dll">Autofac.dll</ProjectItem>
+        <ProjectItem TargetFileName="Autofac.Integration.Web.dll">Autofac.Integration.Web.dll</ProjectItem>
+        <ProjectItem TargetFileName="DotNetOpenId.dll">DotNetOpenId.dll</ProjectItem>
+        <ProjectItem TargetFileName="Pronto.dll">Pronto.dll</ProjectItem>
+      </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
     </Project>
   </TemplateContent>

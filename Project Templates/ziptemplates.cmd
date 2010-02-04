@@ -6,13 +6,7 @@ cd CSharp
 ..\..\7zip\7za.exe a -tzip ..\ProntoCMS-CSharp.zip __TemplateIcon.ico MyTemplate.vstemplate
 
 cd ProntoCmsWebApplication
-..\..\..\7zip\7za.exe a -tzip ..\..\ProntoCMS-CSharp.zip Web.config Global.asax Default.aspx ProntoCmsWebApplication.csproj
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-CSharp.zip admin\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-CSharp.zip App_Data\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-CSharp.zip Libraries\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-CSharp.zip Properties\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-CSharp.zip themes\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-CSharp.zip templates\
+..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-CSharp.zip Web.config Global.asax Default.aspx ProntoCmsWebApplication.csproj admin\ App_Data\ Libraries\ Properties\ themes\ templates\
 
 cd ..\..
 
@@ -20,13 +14,7 @@ cd VB
 ..\..\7zip\7za.exe a -tzip ..\ProntoCMS-VB.zip __TemplateIcon.ico MyTemplate.vstemplate
 
 cd ProntoCmsWebApplication
-..\..\..\7zip\7za.exe a -tzip ..\..\ProntoCMS-VB.zip Web.config Global.asax Default.aspx ProntoCmsWebApplication.vbproj
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-VB.zip admin\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-VB.zip App_Data\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-VB.zip Libraries\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-VB.zip "My Project\"
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-VB.zip themes\
-..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-VB.zip templates\
+..\..\..\7zip\7za.exe a -tzip -xr!?svn\ ..\..\ProntoCMS-VB.zip Web.config Global.asax Default.aspx ProntoCmsWebApplication.vbproj admin\ App_Data\ Libraries\ "My Project\" themes\ templates\
 
 
 popd
