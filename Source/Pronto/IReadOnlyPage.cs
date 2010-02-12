@@ -15,5 +15,6 @@ namespace Pronto
         string Template { get; }
         string Title { get; }
         string Description { get; }
+        int Level { get; }
     }
 }

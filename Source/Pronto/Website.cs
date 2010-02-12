@@ -30,6 +30,11 @@ namespace Pronto
 
         public string Title { get; set; }
 
+        public int Level
+        {
+            get { return -1; }
+        }
+
         public Page FindPage(string path)
         {
             var names = path.Split('/');

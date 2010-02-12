@@ -7,5 +7,6 @@ namespace Pronto
         string Path { get; }
         List<Page> Pages { get; }
         bool Contains(IReadOnlyPage page);
+        int Level { get; }
     }
 }

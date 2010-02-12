@@ -13,9 +13,13 @@ namespace Pronto.PagePlugins
             {
                 var level = int.Parse(data.Substring("level-".Length));
                 var p = Website.FindCurrentPageAtLevel(level, Page);
-                yield return new XElement("ul",
-                    BuildMenu(p, Page, level)
-                );
+                if (p.Any()) // has child pages?
+                {
+                    yield return new XElement("ul",
+                        new XAttribute("id", "cms-navigation-level-" + level),
+                        BuildMenu(p, Page, level)
+                    );
+                }
             }
             else
             {

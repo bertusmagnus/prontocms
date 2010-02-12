@@ -4,19 +4,22 @@ using System.IO;
 using System.Web.Caching;
 using System.Web.Mvc;
 using System.Xml.Linq;
+using System.Collections.Generic;
 
 namespace Pronto.Views
 {
     public class PageViewEngine : IViewEngine
     {
-        public PageViewEngine(WebsiteConfiguration websiteConfiguration, Func<string, IPagePlugin> getPlugin)
+        public PageViewEngine(WebsiteConfiguration websiteConfiguration, Func<string, IPagePlugin> getPlugin, IEnumerable<IPageViewModifier> modifiers)
         {
             this.websiteConfiguration = websiteConfiguration;
             this.getPlugin = getPlugin;
+            this.modifiers = modifiers;
         }
 
         WebsiteConfiguration websiteConfiguration;
         Func<string, IPagePlugin> getPlugin;
+        readonly IEnumerable<IPageViewModifier> modifiers;
 
         public ViewEngineResult FindPartialView(ControllerContext controllerContext, string partialViewName, bool useCache)
         {
@@ -62,7 +65,7 @@ namespace Pronto.Views
             }
             else
             {
-                var pageView = new PageView(html, getPlugin);
+                var pageView = new PageView(html, getPlugin, modifiers);
                 controllerContext.HttpContext.Cache.Insert(viewName, pageView, new CacheDependency(templateFilename));
                 return pageView;
             }
@@ -85,7 +88,7 @@ namespace Pronto.Views
                     placeholder.ReplaceWith(content.Nodes());
                 }
             }
-            return new PageView(masterHtml, getPlugin);
+            return new PageView(masterHtml, getPlugin, modifiers);
         }
 
         static PageView GetPageViewFromCache(ControllerContext controllerContext, string viewName)

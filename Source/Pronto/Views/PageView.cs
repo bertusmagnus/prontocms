@@ -12,14 +12,16 @@ namespace Pronto.Views
 {
     public class PageView : IView
     {
-        public PageView(XDocument html, Func<string, IPagePlugin> getPlugin)
+        public PageView(XDocument html, Func<string, IPagePlugin> getPlugin, IEnumerable<IPageViewModifier> modifiers)
         {
             this.html = html;
             this.getPlugin = getPlugin;
+            this.modifiers = modifiers;
         }
 
-        XDocument html;
-        Func<string, IPagePlugin> getPlugin;
+        readonly XDocument html;
+        readonly Func<string, IPagePlugin> getPlugin;
+        readonly IEnumerable<IPageViewModifier> modifiers;
 
         public void Render(ViewContext viewContext, TextWriter writer)
         {
@@ -39,7 +41,18 @@ namespace Pronto.Views
             AddDescriptionMetaTag(page, html);
             ExpandEmptyNonSelfClosingElements(html);
             ExpandRelativePaths(html, viewContext.HttpContext.Request);
+
+            CallModifiers(html, page);
+
             RenderHtml(html, viewContext, writer);
+        }
+
+        void CallModifiers(XDocument html, IReadOnlyPage page)
+        {
+            foreach (var modifier in modifiers)
+            {
+                modifier.Modify(html, page);
+            }
         }
 
         void AddResetCss(XDocument html)

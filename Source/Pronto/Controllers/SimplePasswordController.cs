@@ -12,7 +12,6 @@ namespace Pronto.Controllers
         }
 
         readonly SimplePasswordService service;
-        readonly string PasswordSettingKey = "password";
 
         public ActionResult Logout()
         {

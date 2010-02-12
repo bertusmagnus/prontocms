@@ -16,6 +16,7 @@ using Autofac.Integration.Web.Mvc;
 using Pronto.Authorization;
 using Pronto.Controllers;
 using Pronto.Views;
+using Autofac.Modules;
 
 namespace Pronto
 {
@@ -163,6 +164,7 @@ namespace Pronto
 
         protected virtual void RegisterContainerComponents(ContainerBuilder builder)
         {
+            builder.RegisterModule(new ImplicitCollectionSupportModule());
             RegisterControllers(builder);
             builder.Register(c => new HttpContextWrapper(HttpContext.Current)).As<HttpContextBase>();
             builder.Register(c => c.Resolve<HttpContextBase>().Server);

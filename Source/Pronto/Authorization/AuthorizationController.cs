@@ -2,8 +2,9 @@
 using System.Linq;
 using System.Web.Mvc;
 using Pronto.Controllers;
+using Pronto.Authorization;
 
-namespace Pronto.Authorization
+namespace Pronto.Controllers
 {
     [HandleErrorForAjaxRequest]
     public class AuthorizationController : Controller

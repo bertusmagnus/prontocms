@@ -89,6 +89,7 @@
     <Compile Include="IResourceAccessor.cs" />
     <Compile Include="IWebsiteProvider.cs" />
     <Compile Include="ResourceWriter.cs" />
+    <Compile Include="Views\IPageViewModifier.cs" />
     <Compile Include="WebsiteConfiguration.cs" />
     <Compile Include="LockManager.cs" />
     <Compile Include="Views\PageViewResult.cs" />

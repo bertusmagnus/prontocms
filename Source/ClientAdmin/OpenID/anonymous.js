@@ -23,7 +23,7 @@ function processNewUser() {
         var token = dialog.find('input[name=token]').val();
         $.ajax({
             type: 'post',
-            url: cms.urlBase + '_auth/addadmin',
+            url: cms.urlBase + '_plugins/authorization/addadmin',
             data: { name: name, token: token },
             success: function() {
                 dialog.dialog('close');

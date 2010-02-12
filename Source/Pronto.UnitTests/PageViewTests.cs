@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +15,7 @@ namespace Pronto.Views
         public void Adds_description_meta_tag()
         {
             var html = XDocument.Parse("<html><head><title>Test</title></head><body></body></html>");
-            var pageview = new PageView(html, s => null);
+            var pageview = new PageView(html, s => null, Enumerable.Empty<IPageViewModifier>());
             var sb = new StringBuilder();
             using (var writer = new StringWriter(sb))
             {

@@ -92,6 +92,14 @@ namespace Pronto
             get { return string.IsNullOrEmpty(Title) ? "Home" : Title; }
         }
 
+        public int Level
+        {
+            get
+            {
+                return pageContainer.Level + 1;
+            }
+        }
+        
         public void Delete()
         {
             pageContainer.Pages.Remove(this);
