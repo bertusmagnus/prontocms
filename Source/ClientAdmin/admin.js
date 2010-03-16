@@ -44,10 +44,16 @@ $.fn.editable = function(options) {
 $.fn.sortableMenu = function() {
     function xmlTree(tree) {
         var xml = ['<pages>'];
-        tree.find('> li').each(function() {
-            var oldPath = $(this).attr('data-path');
-            xml.push('<page path="', oldPath, '"/>');
-        });
+        function build(tree) {
+            tree.find('> li').each(function() {
+                var oldPath = $(this).attr('data-path');
+                xml.push('<page path="', oldPath, '">');
+                var ul = $(this).find('> ul');
+                if (ul.length > 0) build(ul);
+                xml.push('</page>');
+            });
+        }
+        build(tree);
         xml.push('</pages>');
         return xml.join('');
     }
